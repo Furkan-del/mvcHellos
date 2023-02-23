@@ -1,0 +1,25 @@
+<!DOCTYPE html >
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Perfectt!</h1>
+
+<form th:action="@{/register/save}"  th:object="${user}">
+  <label >First name:</label>
+  <input type="text"   th:field="*{fname}" ><br><br>
+  <label >Last name:</label>
+  <input type="text" th:field="*{lname}" ><br><br>
+  <label > Your Age:</label>
+  <input type="text" th:field="*{age}"><br><br>
+  <label >Education</label>
+  <input type="text" th:field="*{education}"><br><br>
+  <button type="submit">Register</button>
+</form>
+<p>But we want to know your infos can you share it?</p>
+</body>
+</html>
