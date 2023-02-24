@@ -34,14 +34,14 @@ public class MainPageController {
 
     @PostMapping("/students")
     public String saveStudent(@ModelAttribute("user") User user) {
-//özelliklerini aldığı user ı kaydeder ve basar yönlendirmeyle
+        //özelliklerini aldığı user ı kaydeder ve basar yönlendirmeyle
         userService.saveStudent(user);
         return "redirect:/students";
     }
 
     @GetMapping("students/edit/{id}")
     public String editStudentForm(@PathVariable Long id, Model model) {
-        model.addAttribute("user", userService.getStudentById(id));
+        model.addAttribute("user",userService.getStudentById(id));
         return "edit_student";
 
     }
@@ -59,8 +59,14 @@ public class MainPageController {
         existingUser.setFirstname(user.getFirstname());
         existingUser.setLastname(user.getLastname());
         existingUser.setEmail(user.getEmail());
+        existingUser.setNumber(user.getNumber());
         userService.updateStudent(user);
         return "redirect:/students";
     }
 
+    @GetMapping("students/show/{id}")
+    public String getShow(Model model, @PathVariable Long id){
+        model.addAttribute("user",userService.getStudentById(id));
+       return  "show";
+    }
 }

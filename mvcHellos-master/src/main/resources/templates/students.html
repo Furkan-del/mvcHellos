@@ -16,13 +16,19 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/students}">Student Management </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/teachers}">Teacher Management </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/teachers}">Student Credit Calculator</a>
+            </li>
         </ul>
     </div>
 
 </nav>
 <div class="container">
     <div class="row">
-        <h1>list Students</h1>
+        <h1>List Students</h1>
         <div class="row">
             <div class="col-lg-3">
                 <a th:href="@{/students/save}" class="btn btn-primary btn-sm mb-3">Add Student</a>
@@ -35,8 +41,9 @@
                 <th>Student First Name</th>
                 <th>Student Last Name</th>
                 <th>Student Email</th>
-                <th>Actions</th>
+
                 <th> Active Numbers of Students</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -44,18 +51,18 @@
                 <td th:text="${user.firstname}"></td>
                 <td th:text="${user.lastname}"></td>
                 <td th:text="${user.email}"></td>
+                <td th:text="${user.number}">
                 <td>
                     <a th:href="@{students/edit/{id} (id=${user.id})}" class="btn btn-primary">Update</a>
                     <a th:href="@{students/delete/{id} (id=${user.id})}" class="btn btn-danger">Delete</a>
-                       <a th:href="@{students/show}" class="btn btn-warning">Calculate</a>
+                       <a th:href="@{students/show/{id} (id=${user.id})}" class="btn btn-warning">Show</a>
                 </td>
 
 
+
+                </td>
             </tr>
-
             </tbody>
-
-
         </table>
     </div>
 

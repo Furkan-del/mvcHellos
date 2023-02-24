@@ -17,4 +17,7 @@ public class User {
     private String lastname;
     @Column(name="email")
     private String email;
+
+    @Column(name="number")
+    private Long number;
 }
