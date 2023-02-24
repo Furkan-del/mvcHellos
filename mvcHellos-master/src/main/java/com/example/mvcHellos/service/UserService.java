@@ -9,6 +9,8 @@ public interface UserService
     public List<User>getAllStudents();
 
     public User saveStudent(User user);
+    public void deleteStudent(User user);
+
 
     public User getStudentById(Long id);
     public User updateStudent(User user);

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @AllArgsConstructor
 @Controller
@@ -36,12 +38,29 @@ public class MainPageController {
         userService.saveStudent(user);
         return "redirect:/students";
     }
+
     @GetMapping("students/edit/{id}")
-    public String editStudentForm(@PathVariable Long id,Model model){
-        model.addAttribute("user",userService.getStudentById(id));
-        return  "edit_student";
+    public String editStudentForm(@PathVariable Long id, Model model) {
+        model.addAttribute("user", userService.getStudentById(id));
+        return "edit_student";
 
     }
 
+    @GetMapping("students/delete/{id}")
+    public String deleteStudent(@PathVariable Long id) {
+        User users = userService.getStudentById(id);
+        userService.deleteStudent(users);
+        return "redirect:/students";
+    }
+
+    @PostMapping("students/{id}")
+    public String updateStudentForm(@PathVariable Long id, User user) {
+        User existingUser = userService.getStudentById(id);
+        existingUser.setFirstname(user.getFirstname());
+        existingUser.setLastname(user.getLastname());
+        existingUser.setEmail(user.getEmail());
+        userService.updateStudent(user);
+        return "redirect:/students";
+    }
 
 }

@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void deleteStudent(User user) {
+        userRepository.delete(user);
+    }
+
+    @Override
     public User getStudentById(Long id) {
         return userRepository.findById(id).orElseThrow( () -> new IllegalStateException());
 

@@ -2,21 +2,19 @@ package com.example.mvcHellos.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
-@Table(name = "userss")
+@Table(name = "users")
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "firstname")
-    private String fname;
+    private String firstname;
     @Column(name = "lastname")
-    private String lname;
+    private String lastname;
     @Column(name="email")
     private String email;
 }

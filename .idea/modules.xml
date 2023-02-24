@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/mvcHellos-master/mvcHellos.iml" filepath="$PROJECT_DIR$/mvcHellos-master/mvcHellos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/mvcHellos-master.iml" filepath="$PROJECT_DIR$/.idea/mvcHellos-master.iml" />
-    </modules>
-  </component>
-</project>
