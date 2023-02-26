@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @AllArgsConstructor
@@ -18,23 +19,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class CreditController {
     private final CreditServiceImpl creditService;
 
-    @GetMapping("calculate/save")
-    public String showForm(Model model) {
-        Credit credit = new Credit();
-        model.addAttribute("credit", credit);
+    @GetMapping("/credits")
+    public String getAllCredits(Model model){
+        model.addAttribute("credit_model",creditService.getCredits());
         return "credits";
     }
-
-    @GetMapping("credits")
+    @GetMapping("credits/save")
     public String createForm(Model model) {
-        model.addAttribute("credit", creditService.getCredits());
-        return "credits";
+        Credit credit=new Credit();
+        model.addAttribute("credit", credit);
+        return "student_calculator";
     }
 
-    @PostMapping("students/calculate")
-    public String saveCalculateForm(@ModelAttribute("credit") Credit credit) {
+    @PostMapping("/credits")
+    public String saveCredit(@ModelAttribute("credit") Credit credit) {
+        creditService.makeCalculate(credit);
         creditService.save(credit);
-        return "redirect:/credşts";
+        return "redirect:/credits";
     }
+
+
+
+
 
 }

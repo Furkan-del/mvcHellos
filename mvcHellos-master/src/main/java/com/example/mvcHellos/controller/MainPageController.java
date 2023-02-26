@@ -1,6 +1,7 @@
 package com.example.mvcHellos.controller;
 
 import com.example.mvcHellos.model.User;
+import com.example.mvcHellos.serviceImpl.TeacherServiceImpl;
 import com.example.mvcHellos.serviceImpl.UserServiceImpl;
 import lombok.AllArgsConstructor;
 
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 @AllArgsConstructor
@@ -16,6 +16,7 @@ import java.util.List;
 public class MainPageController {
 
     private final UserServiceImpl userService;
+
 
     @GetMapping("/students")
     public String getStudents(Model model) {
@@ -69,4 +70,11 @@ public class MainPageController {
         model.addAttribute("user",userService.getStudentById(id));
        return  "show";
     }
+    @GetMapping("students/send/{id}")
+    public String getSendToTeacher(Model model,@PathVariable Long id){
+        model.addAttribute("user",userService.getStudentById(id));
+        return "redirect:/teachers";
+    }
+
+
 }

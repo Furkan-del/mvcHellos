@@ -18,11 +18,11 @@ public class CreditServiceImpl implements CreditService {
 
 
     @Override
-    public int makeCalculate(Credit credit) {
+    public Credit makeCalculate(Credit credit) {
         int total=credit.getMonth()*credit.getRatio();
         credit.setTotal(total);
-        creditRepository.save(credit);
-        return total;
+        return creditRepository.save(credit);
+
     }
 
     @Override

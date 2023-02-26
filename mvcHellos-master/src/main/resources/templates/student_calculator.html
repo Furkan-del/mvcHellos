@@ -10,35 +10,23 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6 col-md-6  col-sm-6 container justify-content-center-card">
-            <h1 class="text-center">Create New Student</h1>
+            <h1 class="text-center">Calculate Credit</h1>
             <div class="card-body">
-                <form th:action="@{/calculate}" th:object="${user}" method="post">
+                <form th:action="@{/credits}" th:object="${credit}" method="post">
                     <div class="form-group">
-                        <label>Student First Name</label>
-                        <input type="text" name="fname" th:field="*{firstname}"
+                        <label>Student month of school</label>
+                        <input type="number" name="month" th:field="*{month}"
                                class="form-control"
-                               placeholder="Enter Student First Name">
+                               placeholder="Enter Student month">
+                    </div>
+                    <div class="form-group">
+                        <label>Rate :</label>
+                        <input type="number" name="ratio" th:field="*{ratio}"
+                               class="form-control"
+                               placeholder="Enter Student  ratio">
                     </div>
 
-                    <div class="form-group">
-                        <label>Student Last Name</label>
-                        <input type="text" name="lname" th:field="*{lastname}"
-                               class="form-control"
-                               placeholder="Enter Student Last Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Student Email</label>
-                        <input type="text" name="email" th:field="*{email}"
-                               class="form-control"
-                               placeholder="Enter Student e mail Name">
-                    </div>
 
-                    <div class="form-group">
-                        <label>Student Number</label>
-                        <input type="number" name="number" th:field="*{number}"
-                               class="form-control"
-                               placeholder="Enter your student number">
-                    </div>
                     <div class=box-footer>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
