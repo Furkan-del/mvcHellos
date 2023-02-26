@@ -15,8 +15,13 @@ import java.util.List;
 public class Teacher {
     @Id
     private Long id;
+    @Column(name="name")
     private String name;
+
+    @Column(name="surName")
     private String surName;
+
+    @Column(name="teacherNumber")
     private int teacherNumber;
 
 

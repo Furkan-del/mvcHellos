@@ -10,6 +10,9 @@ import java.util.List;
 public interface TeacherService {
   public List<Teacher> getAllTeacher();
 
+  public Teacher saveTeacher(Teacher teacher);
+
+  public Teacher getTeacherById(Long id);
 
 
 

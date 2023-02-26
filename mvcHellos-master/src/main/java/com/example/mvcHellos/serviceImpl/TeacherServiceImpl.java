@@ -20,6 +20,16 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherRepository.findAll();
     }
 
+    @Override
+    public Teacher saveTeacher(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
+
+    @Override
+    public Teacher getTeacherById(Long id) {
+        return teacherRepository.findById(id).orElseThrow(()-> new IllegalStateException());
+
+    }
 
 
 }
